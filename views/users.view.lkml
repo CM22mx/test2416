@@ -56,6 +56,12 @@ view: users {
     type: zipcode
     sql: ${TABLE}.zip ;;
   }
+
+  dimension: user_name {
+    type: string
+    sql: concat( ${TABLE}.first_name , " " , ${TABLE}.last_name );;
+  }
+
   measure: count {
     type: count
     drill_fields: [detail*]
